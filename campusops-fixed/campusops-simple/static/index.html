@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusOps</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <section id="loginPage" class="login-page">
+    <div class="login-hero">
+      <p class="eyebrow">CampusOps MVP</p>
+      <h1>Gestion academique claire, simple et automatisable.</h1>
+      <p>Planning, absences, avancement, paiements, notifications, email et workflows OpenClaw dans une seule demo locale.</p>
+      <div class="feature-strip">
+        <span>JWT</span>
+        <span>SQLite</span>
+        <span>Telegram</span>
+        <span>OpenClaw</span>
+      </div>
+    </div>
+
+    <form id="loginForm" class="login-card">
+      <h2>Connexion</h2>
+      <p>Utilise un compte demo pour entrer dans le dashboard.</p>
+      <label>Email
+        <input id="email" type="email" value="admin@campusops.local" autocomplete="username">
+      </label>
+      <label>Mot de passe
+        <input id="password" type="password" value="admin123" autocomplete="current-password">
+      </label>
+      <button>Se connecter</button>
+      <div class="demo-users">
+        <strong>Comptes demo</strong>
+        <span>Admin: admin@campusops.local / admin123</span>
+        <span>Teacher: teacher@campusops.local / teacher123</span>
+        <span>Student: student@campusops.local / student123</span>
+      </div>
+    </form>
+  </section>
+
+  <section id="appShell" class="app-shell hidden">
+    <header>
+      <div>
+        <p class="eyebrow">Dashboard</p>
+        <h1>CampusOps</h1>
+        <p>Supervision academique, automatisation et communication institutionnelle.</p>
+      </div>
+      <div class="user-box">
+        <div>
+          <span id="userName">Utilisateur</span>
+          <small id="userRole">role</small>
+        </div>
+        <button id="logoutBtn" class="secondary">Deconnexion</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="toolbar">
+        <button data-view="dashboard">Tableau</button>
+        <button data-view="planning">Planning</button>
+        <button data-view="absences">Absences</button>
+        <button data-view="payments">Paiements</button>
+        <button data-view="progress">Avancement</button>
+        <button data-view="notifications">Notifications</button>
+        <button data-view="mail">Email</button>
+      </section>
+
+      <section id="status" class="status"></section>
+      <section id="content" class="content"></section>
+    </main>
+  </section>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

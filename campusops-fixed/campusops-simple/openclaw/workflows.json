@@ -1,0 +1,24 @@
+{
+  "project": "CampusOps",
+  "workflows": [
+    {
+      "name": "morning_schedule",
+      "trigger": "cron: 0 7 * * MON-FRI",
+      "method": "POST",
+      "url": "http://localhost:8000/api/openclaw/morning-schedule",
+      "description": "Send today's schedule to teachers and groups."
+    },
+    {
+      "name": "absence_notification",
+      "trigger": "api_event: POST /api/absences",
+      "description": "When an absence is saved, CampusOps creates a student notification."
+    },
+    {
+      "name": "late_payment_reminder",
+      "trigger": "cron: 0 8 * * *",
+      "method": "POST",
+      "url": "http://localhost:8000/api/openclaw/check-late-payments",
+      "description": "Detect late payments and create reminder tasks/notifications."
+    }
+  ]
+}

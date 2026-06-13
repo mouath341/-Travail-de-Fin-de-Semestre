@@ -1,0 +1,3 @@
+# No external dependency is required.
+# Run with Python 3.10+:
+# python app.py

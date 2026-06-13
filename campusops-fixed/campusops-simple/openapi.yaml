@@ -1,0 +1,111 @@
+openapi: 3.0.3
+info:
+  title: CampusOps Simple API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /api/auth/login:
+    post:
+      summary: Login and receive a signed token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        "200": { description: Authenticated }
+  /api/users:
+    get:
+      summary: List users
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Users }
+    post:
+      summary: Create user
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Created }
+  /api/schedules:
+    get:
+      summary: List schedules
+      parameters:
+        - in: query
+          name: scope
+          schema: { type: string, enum: [today, week] }
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Schedules }
+    post:
+      summary: Create schedule
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Created }
+  /api/absences:
+    get:
+      summary: List absences
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Absences }
+    post:
+      summary: Create absence and notification
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Created }
+  /api/progress:
+    get:
+      summary: List progress
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Progress }
+    post:
+      summary: Create progress update
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Created }
+  /api/payments:
+    get:
+      summary: List payments
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Payments }
+    post:
+      summary: Create payment plan item
+      security: [{ bearerAuth: [] }]
+      responses:
+        "201": { description: Created }
+  /api/mail/latest:
+    get:
+      summary: Read latest emails through IMAP or demo mode
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Latest emails }
+  /api/mail/send:
+    post:
+      summary: Send email through SMTP or demo notification
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Sent or simulated }
+  /api/openclaw/morning-schedule:
+    post:
+      summary: OpenClaw workflow for morning schedule
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Notifications created }
+  /api/openclaw/check-late-payments:
+    post:
+      summary: OpenClaw workflow for late payments
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Late payments processed }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

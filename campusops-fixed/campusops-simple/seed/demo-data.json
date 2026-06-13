@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "name": "Admin CampusOps",
+      "email": "admin@campusops.local",
+      "role": "admin",
+      "password": "admin123"
+    },
+    {
+      "name": "Sara Secretariat",
+      "email": "secretariat@campusops.local",
+      "role": "secretariat",
+      "password": "secret123"
+    },
+    {
+      "name": "Youssef Teacher",
+      "email": "teacher@campusops.local",
+      "role": "teacher",
+      "password": "teacher123"
+    },
+    {
+      "name": "Nadia Student",
+      "email": "student@campusops.local",
+      "role": "student",
+      "group_name": "GI-1",
+      "parent_contact": "+212600000001",
+      "password": "student123"
+    },
+    {
+      "name": "Omar Student",
+      "email": "omar@campusops.local",
+      "role": "student",
+      "group_name": "GI-1",
+      "parent_contact": "+212600000002",
+      "password": "student123"
+    }
+  ],
+  "rooms": [
+    { "name": "A101", "capacity": 32 },
+    { "name": "Lab 2", "capacity": 20 }
+  ],
+  "modules": [
+    { "name": "Architecture Web", "code": "WEB301" },
+    { "name": "Base de donnees", "code": "DB201" },
+    { "name": "Automatisation", "code": "AUTO401" }
+  ],
+  "note": "The app seeds these records automatically on first launch. This file is included as the requested dataset deliverable."
+}
